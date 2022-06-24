@@ -4,62 +4,106 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Static Template</title>
-    <link rel="manifest" href="/manifest.json">
+    <title>Madek Custom CSS Demo</title>
+    <style media="screen">
+      body {
+        font-family: Helvetica, 'Helvetica Neue', Arial, sans-serif !important;
+        color: #852171 !important;
+        background: #90fae7 !important;
+        font-size: 1.5rem;
+        margin: 3rem;
+        letter-spacing: 0.1rem;
+      }
+      /* https://getbootstrap.com/docs/4.3/utilities/embed/#aspect-ratios */
+      .embed-responsive {
+        position: relative;
+        display: block;
+        width: 100%;
+        padding: 0;
+        overflow: hidden;
+      }
+      .embed-responsive-16by9::before {
+        padding-top: 56.25%;
+      }
+      .embed-responsive::before {
+        display: block;
+        content: '';
+      }
+      .embed-responsive .embed-responsive-item,
+      .embed-responsive embed,
+      .embed-responsive iframe,
+      .embed-responsive object,
+      .embed-responsive video {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+    </style>
   </head>
   <body>
     <h1>This is a static HTML template.</h1>
 
     <h2>video</h2>
 
-    <div class="___madek-embed">
-      <iframe
-        width="640px"
-        height="360px"
-        src="https://test.madek.zhdk.ch/entries/ab3e71cd-90be-4d91-9ac4-c293323be707/embedded?height=360&width=640&internalEmbed"
-        frameborder="0"
-        style="margin:0;padding:0;border:0"
-        allowfullscreen
-        webkitallowfullscreen
-        mozallowfullscreen
-      ></iframe>
-      <p>
-        <a
-          href="https://test.madek.zhdk.ch/entries/ab3e71cd-90be-4d91-9ac4-c293323be707"
-          >Video im Medienarchiv</a
-        >
-      </p>
-    </div>
+    <p>
+      The Madek server has some custom CSS configured for embeds from
+      <i>this domain</i> only!
+    </p>
 
-    <!--
-      <h2>image</h2>
-      <p>embed code kopiert</p>
-      <div class="___madek-embed">
+    <div class="___madek-embed">
+      <div class="embed-responsive embed-responsive-16by9">
         <iframe
-          src="https://staging.madek.zhdk.ch/entries/ed1679c6-a099-414f-8423-536697bd1443/embedded?accessToken=WN0DK8589MKW36YHSSNMJNNDSD7XZTT6&height=360&width=640"
-          frameborder="0"
+          class="embed-responsive-item"
           width="640px"
           height="360px"
-          style="margin:0;padding:0;border:0"
-          allowfullscreen
-          webkitallowfullscreen
-          mozallowfullscreen
-        ></iframe>
-      </div>
-
-      <p>grössen angepasst</p>
-      <div class="___madek-embed">
-        <iframe
-          src="https://staging.madek.zhdk.ch/entries/ed1679c6-a099-414f-8423-536697bd1443/embedded?accessToken=WN0DK8589MKW36YHSSNMJNNDSD7XZTT6&height=400&width=300"
+          src="https://test.madek.zhdk.ch/entries/9b5fa1d7-3c61-46bf-986b-213ca52031d3/embedded?height=360&width=640"
           frameborder="0"
-          width="300px"
-          height="400px"
-          style="margin:0;padding:0;border:0"
+          style="margin: 0; padding: 0; border: 0"
           allowfullscreen
           webkitallowfullscreen
           mozallowfullscreen
         ></iframe>
       </div>
-    -->
+    </div>
+
+    <hr style="border: 0.1rem solid #852171; margin: 3rem 0" />
+
+    <div style="font-size: 1rem">
+      <p>CSS for this domain:</p>
+      <pre style="margin: 0"><code>
+&lt;style&gt;
+  body[data-embedded-view][data-referer-host=&quot;madek.github.io&quot;] {
+    font-family: Helvetica,&quot;Helvetica Neue&quot;,Arial,sans-serif !important;;
+    color: #852171 !important;
+    background: #90fae7 !important;
+    font-size: 1.5rem;
+  }
+  body[data-embedded-view][data-referer-host=&quot;madek.github.io&quot;] .videojs.vjs-default-skin .vjs-titlebar {
+    font-family: Helvetica,&quot;Helvetica Neue&quot;,Arial,sans-serif !important;;
+    letter-spacing: 0.1rem;
+    background: #852171 !important;
+    color: #90fae7 !important;
+  }
+  body[data-embedded-view][data-referer-host=&quot;madek.github.io&quot;] .videojs.vjs-default-skin .vjs-titlebar .vjs-titlebar-logo {
+    display: none;
+  }
+  body[data-embedded-view][data-referer-host=&quot;madek.github.io&quot;] .videojs.vjs-default-skin .vjs-big-play-button {
+    background: #852171 !important;
+    color: #90fae7 !important;
+    border-color: #90fae7 !important;
+  }
+  body[data-embedded-view][data-referer-host=&quot;madek.github.io&quot;] .videojs.vjs-default-skin .vjs-control-bar,
+  body[data-embedded-view][data-referer-host=&quot;madek.github.io&quot;] .video-js.vjs-default-skin .vjs-menu-button .vjs-menu-content {
+    background: #852171 !important;
+    color: #90fae7 !important;
+    border-color: #90fae7 !important;
+  }
+&lt;/style&gt;
+    </code></pre>
+    </div>
   </body>
 </html>
